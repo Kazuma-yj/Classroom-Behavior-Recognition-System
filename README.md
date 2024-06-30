@@ -1,2 +1,2 @@
-# MonitorSystem
+# Classroom Behavior Recognition System
 cv

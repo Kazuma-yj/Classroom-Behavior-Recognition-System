@@ -18,11 +18,9 @@ package com.example.dangerbehaviordetect.Configure;//package com.example.dangerb
 //    }
 //}
 
+import com.example.dangerbehaviordetect.interceptor.LoggingInterceptor;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.*;
 
 /**
  * 实现 WebMvcConfigurer(全局跨域) 重写 addCorsMappings 方法设置跨域映射
@@ -36,17 +34,11 @@ public class WebMVCConfig implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        //CorsRegistration addMapping(String pathPattern): 添加路径映射，如 /admin/info，或者 /admin/**
         registry.addMapping("/**")
-                //是否发送Cookie
-                .allowCredentials(true)
-                //放行哪些原始域, * 表示所有
-                .allowedOrigins(new String[]{"http://172.30.93.99:8080", "http://172.27.136.223:8080", "http://172.26.160.238:8080", "http://192.168.10.51:8080", "http://0.0.0.0:8080", "http://116.204.11.171:8081", "http://192.168.10.165:8080"})
-                //放行哪些请求方式
-                .allowedMethods(new String[]{"GET", "POST", "PUT", "DELETE"})
-                //放行哪些原始请求头部信息
-                .allowedHeaders("*");
-        //暴露哪些头部信息，不能设置为 * : .exposedHeaders();
+                .allowCredentials(true)  // 允许客户端携带认证信息
+                .allowedOriginPatterns("http://*:*")  // 允许所有域名和端口
+                .allowedMethods("GET", "POST", "PUT", "DELETE")  // 允许的HTTP方法
+                .allowedHeaders("*");  // 允许所有的头部信息
     }
 
     @Configuration
@@ -56,5 +48,11 @@ public class WebMVCConfig implements WebMvcConfigurer {
             //  /home/file/**为前端URL访问路径  后面 file:xxxx为本地磁盘映射
             registry.addResourceHandler("/images/**").addResourceLocations("file:D://images/");
         }
+    }
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(new LoggingInterceptor())
+                .addPathPatterns("/**");// 拦截所有请求，可以根据需要进行配置
     }
 }

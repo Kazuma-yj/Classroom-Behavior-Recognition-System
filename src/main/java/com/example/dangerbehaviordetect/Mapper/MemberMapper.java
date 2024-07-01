@@ -27,6 +27,6 @@ public interface MemberMapper {
     @Select("select c.cID as cID, addr, content, isOwner from Member m, Camera c where m.cID=c.cID and memberID=#{uID}")
     public List<Camera_return> getCameras(int uID);
 
-    @Insert("insert into Member values(#{uID}, #{cID}, true)")
+    @Insert("insert into Member(memberID,cID,isOwner) values(#{uID}, #{cID}, true)")
     public void addOwner(int uID, int cID);
 }

@@ -1,12 +1,10 @@
 package com.example.dangerbehaviordetect.Server.impl;
 
-import cn.hutool.core.date.DateUnit;
-import cn.hutool.core.date.DateUtil;
 import com.example.dangerbehaviordetect.Mapper.UserMapper;
 import com.example.dangerbehaviordetect.Mapper.VCodeMapper;
 import com.example.dangerbehaviordetect.Server.LoginServer;
-import com.example.dangerbehaviordetect.pojo.User;
-import com.example.dangerbehaviordetect.pojo.VCode;
+import com.example.dangerbehaviordetect.entity.User;
+import com.example.dangerbehaviordetect.entity.VCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

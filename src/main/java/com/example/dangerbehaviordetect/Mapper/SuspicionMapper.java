@@ -1,7 +1,7 @@
 package com.example.dangerbehaviordetect.Mapper;
 
-import com.example.dangerbehaviordetect.pojo.Suspicion;
-import com.example.dangerbehaviordetect.pojo.Zone;
+import com.example.dangerbehaviordetect.entity.Suspicion;
+import com.example.dangerbehaviordetect.entity.Zone;
 import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.type.JdbcType;
 

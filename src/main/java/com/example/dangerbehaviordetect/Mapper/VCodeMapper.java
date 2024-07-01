@@ -1,6 +1,6 @@
 package com.example.dangerbehaviordetect.Mapper;
 
-import com.example.dangerbehaviordetect.pojo.VCode;
+import com.example.dangerbehaviordetect.entity.VCode;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;

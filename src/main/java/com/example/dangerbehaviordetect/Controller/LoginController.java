@@ -2,8 +2,8 @@ package com.example.dangerbehaviordetect.Controller;
 
 import com.example.dangerbehaviordetect.Mapper.VCodeMapper;
 import com.example.dangerbehaviordetect.Server.LoginServer;
-import com.example.dangerbehaviordetect.pojo.Result;
-import com.example.dangerbehaviordetect.pojo.User;
+import com.example.dangerbehaviordetect.commonIO.Result;
+import com.example.dangerbehaviordetect.entity.User;
 import com.example.dangerbehaviordetect.utils.JwtUtils;
 import com.example.dangerbehaviordetect.utils.ValidateCodeUtils;
 import lombok.extern.slf4j.Slf4j;
@@ -14,16 +14,13 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.Resource;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeUtility;
 import java.io.UnsupportedEncodingException;
 import java.time.LocalDateTime;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
 @Slf4j
 @RestController

@@ -1,8 +1,6 @@
 package com.example.dangerbehaviordetect.Server;
 
-import com.example.dangerbehaviordetect.pojo.User;
-
-import java.util.List;
+import com.example.dangerbehaviordetect.entity.User;
 
 public interface LoginServer {
     public User login(String mail, String password);

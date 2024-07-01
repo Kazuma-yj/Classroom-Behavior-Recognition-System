@@ -5,7 +5,10 @@ import com.example.dangerbehaviordetect.Mapper.MemberMapper;
 import com.example.dangerbehaviordetect.Mapper.PlaybackMapper;
 import com.example.dangerbehaviordetect.Mapper.SuspicionMapper;
 import com.example.dangerbehaviordetect.Server.VideoServer;
-import com.example.dangerbehaviordetect.pojo.*;
+import com.example.dangerbehaviordetect.entity.*;
+import com.example.dangerbehaviordetect.pojo.Camera_return;
+import com.example.dangerbehaviordetect.pojo.JumpInfo;
+import com.example.dangerbehaviordetect.pojo.Playback_return;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

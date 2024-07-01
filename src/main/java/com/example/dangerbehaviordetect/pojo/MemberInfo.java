@@ -7,13 +7,11 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Camera {
+public class MemberInfo {
 
-    private int cID;
-    private String addr;
-    private String content;
-    private int ownerID;
-    private int flush;
-    private String axis;
+    private int uID;
+    private String mail;
+    private String uName;
+    private boolean isOwner;
 
 }

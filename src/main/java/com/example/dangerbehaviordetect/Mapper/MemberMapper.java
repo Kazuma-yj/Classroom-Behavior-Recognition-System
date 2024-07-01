@@ -1,7 +1,8 @@
 package com.example.dangerbehaviordetect.Mapper;
 
+import com.example.dangerbehaviordetect.pojo.MemberInfo;
 import com.example.dangerbehaviordetect.pojo.Camera_return;
-import com.example.dangerbehaviordetect.pojo.Member;
+import com.example.dangerbehaviordetect.entity.Member;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;

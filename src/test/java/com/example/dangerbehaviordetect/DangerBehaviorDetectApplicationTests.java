@@ -1,11 +1,6 @@
 package com.example.dangerbehaviordetect;
 
-import com.example.dangerbehaviordetect.pojo.VideoTool;
-import com.example.dangerbehaviordetect.utils.ValidateCodeUtils;
-import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import java.io.IOException;
 
 @SpringBootTest
 class DangerBehaviorDetectApplicationTests {

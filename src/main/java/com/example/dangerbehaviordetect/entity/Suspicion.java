@@ -1,4 +1,4 @@
-package com.example.dangerbehaviordetect.pojo;
+package com.example.dangerbehaviordetect.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

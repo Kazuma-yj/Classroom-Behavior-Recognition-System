@@ -1,7 +1,7 @@
 package com.example.dangerbehaviordetect.Controller;
 
 import com.example.dangerbehaviordetect.Server.VideoServer;
-import com.example.dangerbehaviordetect.pojo.Result;
+import com.example.dangerbehaviordetect.commonIO.Result;
 import com.example.dangerbehaviordetect.utils.JwtUtils;
 import io.jsonwebtoken.Claims;
 import lombok.extern.slf4j.Slf4j;

@@ -1,17 +1,17 @@
-package com.example.dangerbehaviordetect.Mapper;
+package com.example.dangerbehaviordetect.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class MemberInfo {
+public class VCode {
 
-    private int uID;
     private String mail;
-    private String uName;
-    private boolean isOwner;
-
+    private String code;
+    private LocalDateTime cTime;
 }

@@ -1,13 +1,13 @@
 package com.example.dangerbehaviordetect.Server.impl;
 
 import com.example.dangerbehaviordetect.Mapper.CameraMapper;
-import com.example.dangerbehaviordetect.Mapper.MemberInfo;
+import com.example.dangerbehaviordetect.pojo.MemberInfo;
 import com.example.dangerbehaviordetect.Mapper.MemberMapper;
 import com.example.dangerbehaviordetect.Mapper.UserMapper;
 import com.example.dangerbehaviordetect.Server.PermissionServer;
-import com.example.dangerbehaviordetect.pojo.Camera;
-import com.example.dangerbehaviordetect.pojo.Member;
-import com.example.dangerbehaviordetect.pojo.User;
+import com.example.dangerbehaviordetect.entity.Camera;
+import com.example.dangerbehaviordetect.entity.Member;
+import com.example.dangerbehaviordetect.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

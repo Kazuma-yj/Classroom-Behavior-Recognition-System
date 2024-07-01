@@ -3,7 +3,7 @@ package com.example.dangerbehaviordetect.Server;
 import com.example.dangerbehaviordetect.pojo.Camera_return;
 import com.example.dangerbehaviordetect.pojo.JumpInfo;
 import com.example.dangerbehaviordetect.pojo.Playback_return;
-import com.example.dangerbehaviordetect.pojo.Suspicion;
+import com.example.dangerbehaviordetect.entity.Suspicion;
 
 import java.util.List;
 import java.util.Map;

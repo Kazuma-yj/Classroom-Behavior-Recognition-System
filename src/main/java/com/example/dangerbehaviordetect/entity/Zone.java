@@ -1,4 +1,4 @@
-package com.example.dangerbehaviordetect.pojo;
+package com.example.dangerbehaviordetect.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,10 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Member {
+public class Zone {
 
     private int cID;
-    private int memberID;
-    private boolean isOwner;
+    private String axis;
 
 }

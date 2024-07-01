@@ -1,6 +1,6 @@
 package com.example.dangerbehaviordetect.Mapper;
 
-import com.example.dangerbehaviordetect.pojo.Camera;
+import com.example.dangerbehaviordetect.entity.Camera;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;

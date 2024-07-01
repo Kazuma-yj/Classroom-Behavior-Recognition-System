@@ -1,6 +1,6 @@
 package com.example.dangerbehaviordetect.Server;
 
-import com.example.dangerbehaviordetect.Mapper.MemberInfo;
+import com.example.dangerbehaviordetect.pojo.MemberInfo;
 
 import java.util.List;
 

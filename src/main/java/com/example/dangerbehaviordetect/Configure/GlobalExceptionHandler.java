@@ -1,6 +1,6 @@
 package com.example.dangerbehaviordetect.Configure;
 
-import com.example.dangerbehaviordetect.pojo.Result;
+import com.example.dangerbehaviordetect.commonIO.Result;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 

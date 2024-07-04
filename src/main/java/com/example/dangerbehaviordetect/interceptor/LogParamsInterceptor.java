@@ -1,4 +1,4 @@
-package com.example.dangerbehaviordetect.pojo;
+package com.example.dangerbehaviordetect.interceptor;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

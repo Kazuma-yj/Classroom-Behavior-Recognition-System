@@ -15,6 +15,7 @@ public class WebConfig implements  WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(timeInterceptor);
+        registry.addInterceptor(timeInterceptor).addPathPatterns("/**") // 你可以修改路径模式来匹配需要拦截的路径
+                .excludePathPatterns("/login", "/register");;
     }
 }

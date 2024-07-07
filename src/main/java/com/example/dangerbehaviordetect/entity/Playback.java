@@ -13,11 +13,13 @@ import java.time.LocalDateTime;
 public class Playback {
 
     private int pID;
-    private LocalDateTime startTime;
     private int fps;
     private int cID;
     private String videoUrl;
     private String xlsUrl;
-    private LocalDateTime endTime;
+    private LocalDateTime endTime;‘
+
+    
+    private LocalDateTime startTime;
 
 }

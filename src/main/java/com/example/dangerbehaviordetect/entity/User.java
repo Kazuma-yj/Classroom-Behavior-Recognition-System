@@ -15,4 +15,7 @@ public class User {
     private String uName;
     private String head;
 
+    public String getuName() {
+        return uName;
+    }
 }

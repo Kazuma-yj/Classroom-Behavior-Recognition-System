@@ -1,5 +1,6 @@
 package com.example.dangerbehaviordetect.Server;
 
+import com.example.dangerbehaviordetect.entity.Camera;
 import com.example.dangerbehaviordetect.pojo.Camera_return;
 import com.example.dangerbehaviordetect.pojo.JumpInfo;
 import com.example.dangerbehaviordetect.pojo.Playback_return;
@@ -24,7 +25,7 @@ public interface VideoServer {
 
     public List<Camera_return> getCameras(int uID);
 
-    public int addCamera(int uID, String addr, String content);
+    public int addCamera(Camera camera);
 
     public Map<String, Object> count(Integer uID, Integer cID, String sTime, String cTime);
 
@@ -32,9 +33,6 @@ public interface VideoServer {
 
     public List<Map<String, Object>> count_android(int cID, String type);
 
-    public void addZone(int cID, String zone);
-
-    public String getZone(int cID);
 
     public void flush(int cID);
 

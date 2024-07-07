@@ -1,7 +1,6 @@
 package com.example.dangerbehaviordetect.Mapper;
 
 import com.example.dangerbehaviordetect.entity.Suspicion;
-import com.example.dangerbehaviordetect.entity.Zone;
 import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.type.JdbcType;
 
@@ -34,15 +33,6 @@ public interface SuspicionMapper {
     @Select("select type, count(cnt) from Suspicion where cID=#{cID} and sTime >= date_sub(current_time, interval 1 hour) group by type")
     @Result(column="count(cnt)", property="cnt", jdbcType=JdbcType.INTEGER)
     public List<Suspicion> getCnt_hour(int cID);
-
-    @Select("select * from Zone where cID=#{cID}")
-    public Zone getZone(int cID);
-
-    @Insert("insert into Zone(cID, axis) values(#{cID}, #{zone})")
-    public void addZone(int cID, String zone);
-
-    @Update("update Zone set axis=#{zone} where cID=#{cID}")
-    public void updateZone(int cID, String zone);
 
     @Insert("insert into Suspicion(sTime, cID, type, cnt) values(str_to_date(#{sTime}, '%Y-%m-%d,%H:%i:%s'), #{cID}, #{type}, #{cnt})")
     public void addSus(String sTime, int cID, String type, int cnt);

@@ -9,11 +9,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Camera {
 
-    private int cID;
     private String addr;
     private String content;
     private int ownerID;
+    private int cID;
     private int flush;
     private String axis;
+    private String ip;
+    private String zone;
 
 }

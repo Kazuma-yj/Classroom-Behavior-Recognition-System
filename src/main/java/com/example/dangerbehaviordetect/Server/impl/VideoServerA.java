@@ -96,13 +96,9 @@ public class VideoServerA implements VideoServer {
     }
 
     @Override
-    public int addCamera(int uID, String addr, String content) {
-        Camera camera = new Camera();
-        camera.setAddr(addr);
-        camera.setContent(content);
-        camera.setOwnerID(uID);
+    public int addCamera(Camera camera) {
         cameraMapper.addCamera(camera);
-        memberMapper.addOwner(uID, camera.getCID());
+        memberMapper.addOwner(camera.getOwnerID(), camera.getCID());
         return camera.getCID();
     }
 
@@ -222,24 +218,6 @@ public class VideoServerA implements VideoServer {
         return res;
     }
 
-    @Override
-    public void addZone(int cID, String zone) {
-        Zone zone1 = suspicionMapper.getZone(cID);
-        if(zone1 != null) {
-            suspicionMapper.updateZone(cID, zone);
-        } else {
-            suspicionMapper.addZone(cID, zone);
-        }
-    }
-
-    @Override
-    public String getZone(int cID) {
-        Zone zone = suspicionMapper.getZone(cID);
-        if(zone == null) {
-            return "null";
-        }
-        return zone.getAxis();
-    }
 
     @Override
     public void flush(int cID) {

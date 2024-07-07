@@ -3,6 +3,7 @@ package com.example.dangerbehaviordetect.Controller;
 import com.example.dangerbehaviordetect.Mapper.CameraMapper;
 import com.example.dangerbehaviordetect.Mapper.UserMapper;
 import com.example.dangerbehaviordetect.Server.VideoServer;
+import com.example.dangerbehaviordetect.entity.Camera;
 import com.example.dangerbehaviordetect.pojo.Playback_return;
 import com.example.dangerbehaviordetect.commonIO.Result;
 import com.example.dangerbehaviordetect.entity.Suspicion;
@@ -161,20 +162,24 @@ public class VideoController {
         uID = (int) claims.get("uID");
         log.info("用户尝试获取摄像头列表，uID为: " + uID);
         return Result.success(videoServer.getCameras(uID));
+
+
+
+
     }
 
     @PostMapping("/addCamera")
-    public Result addCamera(HttpServletRequest request) {
+    public Result addCamera(HttpServletRequest request, @RequestBody Camera camera) {
+        
         int uID;
         String jwt = request.getHeader("token");
 //        log.info(jwt);
         Claims claims = JwtUtils.parseJWT(jwt);
         uID = (int) claims.get("uID");
+        camera.setOwnerID(uID);
+        camera.setZone("0,0,400,400");
 
-        String addr = request.getParameter("addr");
-        String content = request.getParameter("content");
-
-        return Result.success(videoServer.addCamera(uID, addr, content));
+        return Result.success(videoServer.addCamera(camera));
     }
 
     @GetMapping("/getImg")
@@ -186,26 +191,6 @@ public class VideoController {
             return Result.error("出现问题，请重新尝试");
         }
         return Result.success("116.204.11.171:8080/images/" + cID + ".png");
-    }
-
-    @PostMapping("/addZone")
-    public Result addZone(int cID, String zone) {
-        log.info("添加区域：" + cID + ", " + zone);
-        videoServer.addZone(cID, zone);
-        return Result.success();
-    }
-
-    @GetMapping("/getZone")
-    public Result getZone(int cID) {
-        return Result.success(videoServer.getZone(cID));
-    }
-
-    @PostMapping("/stitchFlush")
-    public Result flush(int cID) {
-        log.info("刷新" + cID);
-        videoServer.flush(cID);
-        log.info("刷新成功");
-        return Result.success();
     }
 
     @GetMapping("needFlush")

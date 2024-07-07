@@ -29,9 +29,7 @@ public class LoginServerA implements LoginServer {
 
     /**
      *
-     * @param mail
-     * @param password
-     * @param uName
+     * @Body  user
      * @param code
      * @return:
      *     -2:邮箱已注册
@@ -39,13 +37,13 @@ public class LoginServerA implements LoginServer {
      *     >0:自动分配的ID
      */
     @Override
-    public int register(String mail, String password, String uName, String code) {
+    public int register(User user, String code) {
         //判断是否已经注册
-        User user = userMapper.getByMail(mail);
-        if(user != null) { return -2; }
+        User user1 = userMapper.getByMail(user.getMail());
+        if(user1 != null) { return -2; }
 
         //判断验证码是否正确
-        List<VCode> codes = vCodeMapper.getCode(mail, code);
+        List<VCode> codes = vCodeMapper.getCode(user.getMail(), code);
         boolean isOK = false;
         for(VCode s : codes) {
             LocalDateTime cTime = s.getCTime();
@@ -58,11 +56,7 @@ public class LoginServerA implements LoginServer {
         if(!isOK) { return -1; }
 
         //注册
-        User user1 = new User();
-        user1.setMail(mail);
-        user1.setPassword(password);
-        user1.setUName(uName);
-        userMapper.register(user1);
-        return user1.getUID();
+        userMapper.register(user);
+        return user.getUID();
     }
 }

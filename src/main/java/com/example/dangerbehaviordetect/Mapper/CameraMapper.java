@@ -12,7 +12,7 @@ public interface CameraMapper {
     public Camera getByID(int cID);
 
     @Options(keyProperty = "cID", useGeneratedKeys = true)
-    @Insert("insert into Camera(addr, content, ownerID) VALUES (#{addr}, #{content}, #{ownerID})")
+    @Insert("insert into Camera(addr, content, ownerID, axis, ip, zone) VALUES (#{addr}, #{content}, #{ownerID}, #{axis}, #{ip}, #{zone})")
     public void addCamera(Camera camera);
 
     @Update("update Camera set flush=#{f} where cID=#{cID}")

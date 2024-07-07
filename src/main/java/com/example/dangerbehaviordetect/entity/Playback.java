@@ -17,9 +17,7 @@ public class Playback {
     private int cID;
     private String videoUrl;
     private String xlsUrl;
-    private LocalDateTime endTime;‘
-
-    
+    private LocalDateTime endTime;
     private LocalDateTime startTime;
 
 }

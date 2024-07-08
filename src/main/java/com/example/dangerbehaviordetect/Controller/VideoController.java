@@ -4,6 +4,7 @@ import com.example.dangerbehaviordetect.Mapper.CameraMapper;
 import com.example.dangerbehaviordetect.Mapper.UserMapper;
 import com.example.dangerbehaviordetect.Server.VideoServer;
 import com.example.dangerbehaviordetect.entity.Camera;
+import com.example.dangerbehaviordetect.entity.Zone;
 import com.example.dangerbehaviordetect.pojo.Playback_return;
 import com.example.dangerbehaviordetect.commonIO.Result;
 import com.example.dangerbehaviordetect.entity.Suspicion;
@@ -182,6 +183,23 @@ public class VideoController {
         return Result.success(videoServer.addCamera(camera));
     }
 
+    @PostMapping("/addZone")
+    public Result addZone(@RequestBody Zone zone){
+        if (zone.getX1() == null)
+            return Result.error("数据为空");
+
+        String zoneSquare = zone.getX1() + ',' + zone.getY1() + ',' +
+                      zone.getX2() + ',' + zone.getY2();
+
+        System.out.println(zone.getcID());
+       // Integer cID = Integer.valueOf(request.getParameter("cID"));
+        int result = videoServer.addZone(zoneSquare, zone.getcID());
+
+        if (result > 0){
+            return Result.success();
+        }
+        return Result.error("更新zone失敗");
+    }
     @GetMapping("/getImg")
     public Result getImg(int cID) {
         return Result.success(videoServer.needFlush(cID));

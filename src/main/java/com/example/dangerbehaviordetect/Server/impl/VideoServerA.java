@@ -220,8 +220,12 @@ public class VideoServerA implements VideoServer {
 
 
     @Override
-    public void flush(int cID) {
-        cameraMapper.flush(cID, 1);
+    public int addZone(String zone, int cID) {
+        try {
+            return cameraMapper.addZone(zone, cID);
+        } catch (Exception e) {
+            throw new RuntimeException(e.getMessage());
+        }
     }
 
     @Override

@@ -27,14 +27,12 @@ public interface VideoServer {
 
     public int addCamera(Camera camera);
 
+    public int addZone(String zone, int cID);
     public Map<String, Object> count(Integer uID, Integer cID, String sTime, String cTime);
 
     public List<Map<String, Object>> statistic(int cID, String time);
 
     public List<Map<String, Object>> count_android(int cID, String type);
-
-
-    public void flush(int cID);
 
     public String needFlush(int cID);
 

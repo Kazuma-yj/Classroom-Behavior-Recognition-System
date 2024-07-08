@@ -15,8 +15,8 @@ public interface CameraMapper {
     @Insert("insert into Camera(addr, content, ownerID, axis, ip, zone) VALUES (#{addr}, #{content}, #{ownerID}, #{axis}, #{ip}, #{zone})")
     public void addCamera(Camera camera);
 
-    @Update("update Camera set flush=#{f} where cID=#{cID}")
-    public void flush(int cID, int f);
+    @Update("update Camera set zone=#{zone} where cID=#{cID}")
+    public int addZone(String zone, int cID);
 
     @Select("select axis from Camera where cID=#{cID}")
     public String getAxis(int cID);

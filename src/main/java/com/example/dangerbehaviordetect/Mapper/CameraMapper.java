@@ -26,4 +26,7 @@ public interface CameraMapper {
 
     @Select("select * from Camera where cID in (select cID from Member where memberID=#{uID})")
     public List<Camera> getAxises(int uID);
+
+    @Select("select flush from Camera where cID = #{cID}")
+    public String getImg(int cID);
 }

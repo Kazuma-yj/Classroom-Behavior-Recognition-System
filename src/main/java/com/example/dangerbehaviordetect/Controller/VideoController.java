@@ -184,23 +184,9 @@ public class VideoController {
 
     @GetMapping("/getImg")
     public Result getImg(int cID) {
-        VideoTool videoTool = new VideoTool();
-        try {
-            videoTool.getThumb("rtmp://116.204.11.171/" + cID + "p/test", cID + ".png", 1280, 720, 0, 0, 0);
-        } catch (IOException | InterruptedException e) {
-            return Result.error("出现问题，请重新尝试");
-        }
-        return Result.success("116.204.11.171:8080/images/" + cID + ".png");
+        return Result.success(videoServer.needFlush(cID));
     }
 
-    @GetMapping("needFlush")
-    public Result needFlush(int cID) {
-        if(videoServer.needFlush(cID)) {
-            log.info("已刷新");
-            return Result.success("yes");
-        }
-        return Result.success("no");
-    }
 
     @GetMapping("/getAxis")
     public Result getAxis(int cID) {

@@ -225,14 +225,12 @@ public class VideoServerA implements VideoServer {
     }
 
     @Override
-    public boolean needFlush(int cID) {
-        Camera camera = cameraMapper.getByID(cID);
-//        System.out.println(camera.getCID() + ", " + camera.getFlush());
-        if(camera.getFlush() == 1) {
-            cameraMapper.flush(cID, 0);
-            return true;
+    public String needFlush(int cID) {
+        try {
+            return cameraMapper.getImg(cID);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
-        return false;
     }
 
     @Override

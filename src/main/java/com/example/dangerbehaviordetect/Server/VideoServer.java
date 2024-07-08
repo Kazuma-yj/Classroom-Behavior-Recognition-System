@@ -36,7 +36,7 @@ public interface VideoServer {
 
     public void flush(int cID);
 
-    public boolean needFlush(int cID);
+    public String needFlush(int cID);
 
     public void addSus(String sTime, int cID, String type, int cnt);
 

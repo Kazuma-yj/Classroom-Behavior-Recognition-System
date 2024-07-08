@@ -13,7 +13,7 @@ public class Camera {
     private String content;
     private int ownerID;
     private int cID;
-    private int flush;
+    private String flush;
     private String axis;
     private String ip;
     private String zone;

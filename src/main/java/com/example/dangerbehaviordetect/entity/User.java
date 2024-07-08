@@ -14,7 +14,7 @@ public class User {
     private String password;
     private String uName;
     private String head;
-
+    private boolean admin;
     public String getuName() {
         return uName;
     }

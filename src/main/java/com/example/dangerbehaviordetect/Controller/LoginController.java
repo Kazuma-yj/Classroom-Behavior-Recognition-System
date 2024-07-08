@@ -43,8 +43,10 @@ public class LoginController {
             claims.put("mail", mail);
             claims.put("uID", user.getUID());
             String jwt = JwtUtils.generateJwt(claims);
+            claims.put("jwt", jwt);
+            claims.put("admin", user.isAdmin());
             log.info("用户:" + user.getMail() + "，ID:" + user.getUID() + "登录成功");
-            return Result.success(jwt);
+            return Result.success(claims);
         }
         log.info("用户尝试登录失败，邮箱为:" + mail);
         return Result.error("login fail");
@@ -91,7 +93,7 @@ public class LoginController {
         claims.put("uID", res);
         String jwt = JwtUtils.generateJwt(claims);
         log.info("用户:" + user.getMail() + "，ID:" + res + "自动登录成功");
-        return Result.success(jwt);
+        return Result.success(claims);
     }
 
 }

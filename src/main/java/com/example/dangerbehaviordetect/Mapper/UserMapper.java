@@ -19,6 +19,6 @@ public interface UserMapper {
     public User getByID(int ID);
 
     @Options(keyProperty = "uID", useGeneratedKeys = true)
-    @Insert("insert into User(mail, password, uName) values (#{mail}, #{password}, #{uName})")
+    @Insert("insert into User(mail, password, uName, admin) values (#{mail}, #{password}, #{uName}, 0)")
     public void register(User user);
 }

@@ -91,7 +91,10 @@ public class LoginController {
         Map<String, Object> claims = new HashMap<>();
         claims.put("mail", user.getMail());
         claims.put("uID", res);
+
         String jwt = JwtUtils.generateJwt(claims);
+        claims.put("admin", 0);
+        claims.put("jwt", jwt);
         log.info("用户:" + user.getMail() + "，ID:" + res + "自动登录成功");
         return Result.success(claims);
     }
